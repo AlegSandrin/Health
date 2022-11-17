@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="fade">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title><ion-icon name="person-circle-outline"></ion-icon>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  
+  <div id="container">
+  
+    <ion-label class="title"> Acesso á conta </ion-label>
+
+    <ion-label class="subtitle"> Preencha os campos com seus dados cadastrados para acessar sua conta. </ion-label>
+  
+  <form [formGroup]="loginForm" (submit)="logar()" novalidate>
+  
+  <ion-list>
+  
+    <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" placeholder="Endereço de Email" formControlName="email" clearInput ></ion-input>
+    </ion-item>
+  
+    <ion-item>
+    <ion-label position="floating">Senha</ion-label>
+    <ion-input type="password" placeholder="Senha" formControlName="senha" clearInput></ion-input>
+    </ion-item>
+
+  
+    <ion-button expand="block" [disabled]="!loginForm.valid" type="submit">Entrar</ion-button>
+  
+  </ion-list>
+
+  <ion-label>Não possui uma conta? <a routerLink="/cadastro">Cadastre-se aqui!</a></ion-label>
+  
+  </form>
+  
+  </div>
+  
+  </ion-content>
+  

@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+
+<div id="header">
+
+  <ion-header collapse="fade">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title><ion-icon name="home-outline"></ion-icon>Página Inicial</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+</div>
+
+<ion-list *ngIf="dados">
+
+<ion-label> Teste de resposta do banco de dados:</ion-label>
+<ion-item>
+  <ion-label>Nome de Usuário: {{dados.nome_usuario}}</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label>Email: {{dados.email}}</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label>Data de Nascimento: {{dados.data_nasc}}</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label>Telefone: {{dados.telefone}}</ion-label>
+</ion-item>
+
+</ion-list>
+
+</ion-content>

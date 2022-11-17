@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true">
+
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><ion-icon name="reader-outline"></ion-icon>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<div id="container">
+
+  <ion-label class="title"> Seja bem-vindo! </ion-label>
+
+  <ion-img src="assets/img/logo.png" alt="logo"></ion-img>
+
+  <ion-label class="subtitle"> Preencha os dados de cadastro para continuar. </ion-label>
+
+<form [formGroup]="cadastroForm" (submit)="cadastrar()" novalidate>
+
+<ion-list>
+
+  <ion-item>
+  <ion-label position="floating">Usuário</ion-label>
+  <ion-input type="text" placeholder="Nome de Usuário" formControlName="nome_usuario" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+  <ion-label position="floating">Email</ion-label>
+  <ion-input type="email" placeholder="Endereço de Email" formControlName="email" clearInput ></ion-input>
+  </ion-item>
+
+  <ion-item>
+  <ion-label position="floating">Telefone</ion-label>
+  <ion-input type="tel" placeholder="Número de Telefone" formControlName="telefone" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Data de Nascimento</ion-label>
+    <ion-input type="date" placeholder="Data de Nascimento" formControlName="data_nasc" clearInput></ion-input>
+    </ion-item>
+
+  <ion-item>
+  <ion-label position="floating">Senha</ion-label>
+  <ion-input type="password" placeholder="Senha" formControlName="senha" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+  <ion-label position="floating">Confirmar Senha</ion-label>
+  <ion-input type="password" placeholder="Repita a Senha" formControlName="confirm_senha" clearInput></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" [disabled]="!cadastroForm.valid" type="submit">Cadastrar</ion-button>
+
+</ion-list>
+
+</form>
+
+<ion-label>Já possui uma conta? <a routerLink="/login">Faça login aqui!</a></ion-label>
+
+</div>
+
+</ion-content>
