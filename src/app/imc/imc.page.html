@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>IMC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large">     IMC     </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<div id="calculadora">
+
+<div id="sexo">
+<ion-label>Qual seu sexo?</ion-label>
+<ion-button (click)="calcular('Masculino')"> <ion-icon name="man-outline"></ion-icon> </ion-button>
+<ion-button (click)="calcular('Femino')"> <ion-icon name="woman-outline"></ion-icon> </ion-button>
+</div>
+
+<ion-item>
+  <ion-label position="floating">Digite sua Idade:</ion-label>
+  <ion-input type="number" [(ngModel)]="idade" placeholder="digite aqui"></ion-input>
+</ion-item>
+  
+
+<ion-item>
+  <ion-label position="floating">Digite sua Altura em metros:</ion-label>
+  <ion-input type="number" [(ngModel)]="altura" placeholder="digite aqui"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Digite seu Peso em kg:</ion-label>
+  <ion-input type="number" [(ngModel)]="peso" placeholder="digite aqui"></ion-input>
+</ion-item>
+
+
+</div>
+
+ <div id="container">
+
+<ion-button (click)="calcularIMC()"><ion-label>CALCULAR</ion-label></ion-button>
+<ion-img src="assets/img/tabela-imc.png" alt="tabela imc"></ion-img>
+</div>
+
+<div *ngIf="resultado" id="resultado">
+  <h1>Resultado: {{resultado}}</h1>
+</div>
+
+<div *ngIf="texto1" id="texto">
+<h1>{{texto1}}</h1>
+<p>Para ter um ganho de peso saudável, não se deve comer somente muitos alimentos calóricos e sim priorizar alguns alimentos 
+  com boa quantidade calórica, mas ricos em nutrientes benéficos e com pouca quantidade de gordura saturada e 
+  gordura trans. Dica: Estimule a fome, alimentando-se a cada 3 horas. Tente fazer de 5 a 6 refeições por dia. Café da manhã, lanche, almoço, lanche, jantar e um lanche antes de dormir. 
+  O maior fracionamento permite você controlar melhor seu apetite!</p>
+  <ul>
+  <li> Alimentos ricos em proteína são grandes aliados: dê preferência às carnes magras (alcatra, maminha, fraldinha), frango e principalmente peixes e ovos, além de leite e queijos brancos como ricota e minas;</li>
+  <li> Aposte nas “gorduras boas”: amendoim, nozes, amêndoa, avelã, castanhas, azeite de oliva, linhaça e abacate;</li>
+  <li> Aumente o consumo de pães, bolos, massas, mandioca, batata, milho e cereais (arroz, farinha de trigo, fubá, aveia), lembrando sempre de optar pelas versões integrais;</li>
+  <li> Evite o uso de adoçantes artificiais, usando sempre o açúcar (mascavo, demerara, cristal) ou mel;</li>
+  <li> Evite alimentos nas versões diet e light, baixo teor de gorduras, calorias reduzidas;</li>
+  <li> Consuma frutas mais calóricas nos lanches como ameixa preta, uva passa, banana, abacate, caqui, manga, suco de laranja (2-3 unidades da fruta) ou suco de tamarindo;</li>
+  <li> Beba uma boa quantidade de água durante o dia, no mínimo 7 a 8 copos.;</li>
+  <li> Faça pratos bonitos, coloridos e atraentes, pois, a aparência do alimento exerce muita influência sobre o apetite;</li>
+  <li> Adicione 1 colher (sopa) de azeite ou farelo de aveia no almoço e jantar;</li>
+  </ul>
+
+</div>
+
+<div *ngIf="texto2" id="texto">
+<h1>{{texto2}}</h1>
+</div>
+
+</ion-content>
+

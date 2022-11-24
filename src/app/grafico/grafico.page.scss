@@ -1,0 +1,26 @@
+#container{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.demo-chart {
+    height: 400px;
+  }
+
+body{
+    --background: #100C2A;
+    position: relative;
+}
+
+*{
+    font-family: 'Patua One', cursive;
+}
+
+#container ion-button{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    height: 50px;
+    font-size: 1.1rem;
+}

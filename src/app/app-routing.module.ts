@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'inicial',
     loadChildren: () => import('./inicial/inicial.module').then( m => m.InicialPageModule)
   },
+  {
+    path: 'grafico',
+    loadChildren: () => import('./grafico/grafico.module').then( m => m.GraficoPageModule)
+  },
+  {
+    path: 'imc',
+    loadChildren: () => import('./imc/imc.module').then( m => m.IMCPageModule)
+  },
 ];
 
 @NgModule({

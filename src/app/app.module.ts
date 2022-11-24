@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 
 // import forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 @NgModule({
@@ -31,6 +32,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       AngularFireDatabaseModule,
       FormsModule,
       ReactiveFormsModule,
+      NgxEchartsModule.forRoot({
+        echarts: () => import('echarts'),
+      }),
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
