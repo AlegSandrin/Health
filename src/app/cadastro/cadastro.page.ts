@@ -24,6 +24,7 @@ export class CadastroPage implements OnInit {
         nome_usuario: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
         email: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(30), Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]], // padrão para validação de email
         data_nasc: ['', [Validators.required]],
+        sexo: ['', [Validators.required]],
         telefone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(11),Validators.pattern("^[0-9]*$")]], // padrão para validação do número de celular (apenas números)
         senha: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
         confirm_senha: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]

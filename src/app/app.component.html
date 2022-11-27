@@ -1,3 +1,61 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  
+  <ion-menu *ngIf="usuario" side="end" swipeGesture="false" content-id="menu" type="overlay">
+
+    <ion-header  [translucent]="true">
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+  
+    <ion-content [fullscreen]="true">
+  <ion-list class="menu-items" lines="none">
+  
+    <ion-menu-toggle>
+
+      <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/img/avataricon_green.png">
+      </ion-avatar>
+      {{usuario.nome_usuario}}
+    </ion-item>
+
+        <ion-item routerLink="/inicial">
+          <ion-icon name="home-outline"></ion-icon>Início
+        </ion-item>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle>
+        <ion-item routerLink="/imc">
+          <ion-icon name="accessibility-outline"></ion-icon>IMC
+        </ion-item>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle>
+        <ion-item routerLink="/grafico">
+          <ion-icon name="bar-chart-outline"></ion-icon>Gráfico - Frequência Cardíaca
+        </ion-item>
+  </ion-menu-toggle>
+
+  <ion-menu-toggle>
+    <ion-item routerLink="/quemsomos">
+      <ion-icon name="people-outline"></ion-icon>Quem somos
+    </ion-item>
+</ion-menu-toggle>
+
+  <ion-menu-toggle>
+      <ion-item (click)="signOut()"> 
+         <ion-icon name="log-out-outline"></ion-icon> Sair
+      </ion-item>
+  </ion-menu-toggle>
+
+
+  </ion-list>
+  </ion-content>
+  </ion-menu>
+  
+  
+  <ion-router-outlet id="menu"></ion-router-outlet>
+
 </ion-app>

@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'imc',
     loadChildren: () => import('./imc/imc.module').then( m => m.IMCPageModule)
   },
+  {
+    path: 'dietas/:resultado/:sexo/:idade',
+    loadChildren: () => import('./dietas/dietas.module').then( m => m.DietasPageModule)
+  },
+  {
+    path: 'quemsomos',
+    loadChildren: () => import('./quemsomos/quemsomos.module').then( m => m.QuemsomosPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,146 @@
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="fade">
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="imc"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button> </ion-menu-button>
+      </ion-buttons>
+      <ion-title>Dietas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+
+<ion-content>
+
+  <div *ngIf="resultado" id="resultado">
+    <h1>Resultado: {{resultado}}</h1>
+  </div>
+  
+  
+  <div id="abaixo">
+  <h1>ABAIXO DO PESO</h1>
+  <p>Para ter um ganho de peso saudável, não se deve comer somente muitos alimentos calóricos e sim priorizar alguns alimentos 
+    com boa quantidade calórica, mas ricos em nutrientes benéficos e com pouca quantidade de gordura saturada e 
+    gordura trans. Dica: Estimule a fome, alimentando-se a cada 3 horas. Tente fazer de 5 a 6 refeições por dia. Café da manhã, lanche, almoço, lanche, jantar e um lanche antes de dormir. 
+    O maior fracionamento permite você controlar melhor seu apetite!</p>
+    <ul>
+    <li> Alimentos ricos em proteína são grandes aliados: dê preferência às carnes magras (alcatra, maminha, fraldinha), frango e principalmente peixes e ovos, além de leite e queijos brancos como ricota e minas;</li>
+    <li> Aposte nas “gorduras boas”: amendoim, nozes, amêndoa, avelã, castanhas, azeite de oliva, linhaça e abacate;</li>
+    <li> Aumente o consumo de pães, bolos, massas, mandioca, batata, milho e cereais (arroz, farinha de trigo, fubá, aveia), lembrando sempre de optar pelas versões integrais;</li>
+    <li> Evite o uso de adoçantes artificiais, usando sempre o açúcar (mascavo, demerara, cristal) ou mel;</li>
+    <li> Evite alimentos nas versões diet e light, baixo teor de gorduras, calorias reduzidas;</li>
+    <li> Consuma frutas mais calóricas nos lanches como ameixa preta, uva passa, banana, abacate, caqui, manga, suco de laranja (2-3 unidades da fruta) ou suco de tamarindo;</li>
+    <li> Beba uma boa quantidade de água durante o dia, no mínimo 7 a 8 copos.;</li>
+    <li> Faça pratos bonitos, coloridos e atraentes, pois, a aparência do alimento exerce muita influência sobre o apetite;</li>
+    <li> Adicione 1 colher (sopa) de azeite ou farelo de aveia no almoço e jantar;</li>
+    </ul>
+  
+  </div>
+  
+  <div id="ideal">
+  <h1>PESO IDEAL</h1>
+  <p>O equilíbrio corporal (resultado do nosso peso em relação à nossa altura) é um dos mais criteriosos preceitos da vida saudável, 
+    contudo, parece ainda está longe de ser alcançado pelas pessoas. Isso é sim algo para se orgulhar, mas não é porque você está na sua 
+    faixa ideal que deve ficar despreocupado, o difícil não é chegar na estabilidade e sim mantê-la. Bons carboidratos a serem incluídos 
+    tanto nas dietas de perda quanto nas de ganho de peso devem sempre equilibrar quantidades e valores calóricos adequados para cada pessoa e 
+    seus objetivos físicos. Dê preferência às fontes de vitaminas, minerais e fibras. Veja uma lista dos alimentos indicados para esse processo:</p>
+    <ul>
+    <li>Carnes Magras: Frango, peixe (assados, cozidos, grelhados);</li>
+    <li>Ovos (sem óleo) e leguminosas (feijões);</li>
+    <li>Leite e seus derivados (queijo branco, iogurte);</li>
+    <li>Bons carboidratos: Arroz integral, batata doce, inhame, pão integral, tapioca;</li>
+    <li>Vegetais cozidos (1 a 2 tipos diferentes) e Vegetais crus (no mínimo 3 tipos);</li>
+    <li>Frutas (em torno de 2 a 3 porções/ unidades, ao dia. Dê preferência às frutas da estação);</li>
+    <li>Boas gorduras: Azeite e castanhas;</li>
+    </ul>
+  </div>
+  
+  <div id="sobre">
+  <h1>SOBREPESO</h1>
+  <p>Sobrepeso indica que a pessoa está acima do peso considerado normal para a idade ou tamanho que ela possui. Essa é uma condição que atinge 
+    muitas pessoas, e se não tratada pode levar a obesidade. Siga as dicas abaixo:</p>
+  <p>Para essa dieta você vai precisar aumentar o consumo de fibras no seu cardápio, ou seja você deve investir em frutas, 
+    vegetais, alimentos integrais (arroz, farinha, macarrão) e evitar o consumo de alimentos industrializados, ou ricos em gordura.</p> 
+  <p>O que eu posso comer?</p>
+  <ul>
+  <li>Comer 3 a frutas diariamente;</li>
+  <li>Colocar metade do prato com legumes e vegetais ou os comer antes da refeição principal;</li>
+  <li>Sua fonte de carboidrato deve ser só uma por refeição, as opções são: macarrão integral, batata doce ou arroz integral;</li>
+  <li>Para complementar escolha entre feijão, milho, ervilha, grão de bico ou soja (uma colher de sopa por refeição);</li>
+  <li>Retire todas as gorduras das carnes antes de as preparar.</li>
+  <li>Além das refeições principais faça pelo menos 5 pequenas refeições por dia, com frutas, barrinhas ou suco detox.</li>
+  
+  </ul>
+  <p>Dicas extras!</p>
+  <ul>
+  <li>Para substituir o sal na hora de preparar os alimentos você pode usar produtos naturais como cebola, alho, orégano, manjericão!</li>
+  <li>Por fim, beba muita água na dieta, pelo menos 2 litros por dia! Você pode tomar também chás e sucos naturais sem açúcar.</li>
+  </ul>
+  </div>
+  
+  <div id="graui">
+  <h1>OBESIDADE GRAU I</h1>
+  <p>Pessoas obesas, que estão com o IMC (Índice de Massa Corporal) acima de 30, precisam de uma dieta bem mais focada porque, somado ao peso em excesso, 
+    provavelmente já começam a despontar problemas como diabetes, colesterol alto, hipertensão arterial, entre outras complicações . O tratamento da obesidade grau I 
+    deve ser baseada no tripé: dieta, exercício físico e medicação em longo prazo por se tratar de uma doença crônica. Cada dieta a partir do primeiro grau de 
+    obesidade deve ser feita de forma específica para cada indivíduo, e por profissionais. Aqui vão algumas dicas universais para esse primeiro estágio da obesidade:</p>
+  <ul>
+  <li>No momento das refeições (inclusive café da manhã e lanches), deixe os alimentos fora do seu alcance de visão. Sente-se à mesa com o prato feito. Isso evita os beliscos desnecessários;</li>
+  <li>Hidrate-se. O organismo demora para enviar a sensação de sede e, muitas vezes, ela é confundida com fome;</li>
+  <li>Coma de 3 a 5 frutas por dia. O áçucar da fruta ajuda a inibir a vontade de comer doces, além dessa turma ser ricas em fibras, vitaminas e minerais;</li>
+  <li>Consuma verduras e legumes no almoço e no jantar. Varie a cor e o modo de preparo desses alimentos. As fibras auxiliam no processo de saciedade, e as vitaminas e os minerais que eles contêm colaboram com a perda de peso, porque ajudam a diminuir a ansiedade e turbinam o gasto calórico;</li>
+  <li>Fique longe das tentações. Se a caixa de bombom fica no armário, fica bem mais complicado resistir a ela. Evite ter em casa alimentos gordurosos e ricos em açúcar, que são os perigos da dieta;</li>
+  to falando, mds q povo cha
+  </ul>
+  </div>
+  
+  <div id="grauii">
+  <h1>OBESIDADE GRAU II (severa)</h1>
+  <p>Você precisará fazer uma dieta alimentar rigorosa, com o acompanhamento de um nutricionista e consultar um médico especialista (endócrino). Também, uma 
+    rotina de exercícios intensos, provavelmente aeróbicos (para emagrecer). Neste estágio, é preciso se dedicar muito para conseguir perder peso. Uma dica é a dieta hipocalórica.</p>
+  <p>Prioridades</p>
+  <ul>
+    <li>Os ovos, as leguminosas e os peixes como principais fontes de proteína;</li>
+    <li>Os vegetais como a base da sua alimentação;</li>
+    <li>Um café da manhã nutritivo e completo;</li>
+    <li>O consumo de gorduras saudáveis, como azeite de oliva e oleaginosas;</li>
+    <li>Lanches leves, saudáveis e com ingredientes frescos, como as frutas.</li>
+    </ul>
+  <p>Dicas</p>
+  <ul>
+    <li>Consumir ovos cozidos antes de todas as refeições e priorizar o consumo de vegetais de todos os tipos;</li>
+    <li>incluir ovos cozidos em um cardápio variado e balanceado;</li>
+    <li>Reduzir ao máximo o consumo de sal, pois ele retém líquidos;</li>
+    <li>Beber bastante água;</li>
+    <li>Praticar exercícios físicos;</li>
+    </ul>
+  </div>
+  
+  <div id="grauiii">
+  <h1>OBESIDADE GRAU III (mórbida)</h1>
+  <p>O último grau de obesidade é o 3, e acredite, nesta fase sua força de vontade tem de ser absurda. Dependendo das suas condições, é provável que 
+    receba a orientação de realizar uma cirurgia.</p>
+  <p>Mesmo que difícil a reversão da obesidade grau 3, um tratamento adequado pode solucionar ou diminuir, conseguindo chegar até o 
+    sobrepeso. A dieta mais aceita atualmente é a hipocalórica.</p>
+  <p>O que eu devo comer?</p>
+  <ul>
+    <li>Coma mais frutas e beba sucos naturais sem adição de açúcar, pois assim o organismo estará absorvendo as vitaminas e minerais;</li>
+    <li>Queijo branco (ricota, queijo minas, cottage, etc.)</li>
+    <li>Troque o leite integral pelo leite semi ou desnatado pela menor quantidade de gordura existente;</li>
+    <li>Opte por carnes magras e assadas, grelhadas ou cozidas;</li>
+    <li>Água para manter a hidratação do corpo;</li>
+    <li>Legumes, verduras e hortaliças: pode abusar nas refeições principais (alface, tomate, cenoura, abobrinha, abóbora, agrião, rabanete, beterraba, chuchu, berinjela, couve, brócolis, vagem, etc.).</li>
+  </ul>
+  <p>O que eu devo evitar?</p>
+  <ul>
+    <li>Açúcar, frituras, doces, refrigerantes, bebidas alcóolicas;</li>
+    <li>Diminua a quantidade da comida que é ingerida ao dia, não excluindo-as, apenas reduza;</li>
+    <li>Alimentos ultraprocessados pelo alto teor de sódio, gordura trans, saturadas, açúcar, aditivos químicos, etc;</li>
+    </ul>
+  </div>
+   
+  
+</ion-content>

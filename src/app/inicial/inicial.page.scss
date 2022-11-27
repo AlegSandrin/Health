@@ -6,8 +6,58 @@ body{
 position: relative;
 }
 
-#header ion-icon{
-    transform: translateY(20%);
-    font-size: 32px;
-    margin-right: 2%;
+#header ion-title{
+    transform: translateX(-90%);
+    transform: translateY(45%);
+    font-size: 1.9rem;
+    float: left;
+}
+
+#inicio{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#inicio ion-button{
+height: 200px;
+width: auto;
+
+}
+
+img{
+    width: auto;
+    height: 40%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+#inicio p{
+    width: 90%;
+    font-size: 1.1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#inicio h2, h3, h5{
+    color: #2FE3E3;
+    font-size: 1.5rem;
+}
+
+#inicio h4{
+font-size: 1.1rem;
+width: 90%;
+}
+
+#header ion-img{
+    margin:1%;
+    float: left;
+    height: 70px;
+    width: auto;
 }

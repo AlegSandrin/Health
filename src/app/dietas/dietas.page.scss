@@ -1,5 +1,3 @@
-
-
 #container {
     text-align: center;
     left: 0;
@@ -40,7 +38,7 @@
     text-decoration: none;
   }
   
-  #conteudo{
+  #calculadora{
     margin-top: 10%;
     display: block;
     margin-left: auto;
@@ -54,11 +52,11 @@
     margin-bottom: 10%;
   }
   
-  #conteudo .resultado{
+  #calculadora .resultado{
     margin-left: 6%;
   }
   
-#conteudo ion-label, ion-icon, ion-input{
+#calculadora ion-label, ion-icon, ion-input{
   color: rgb(0, 0, 0);
 }
  
@@ -95,7 +93,7 @@
   left: 0;
   right: 0;
   top: 10%;
-  margin-bottom: 10%;
+  padding-bottom: 20%;
   width: 90%;
   height: auto;
   margin-left: auto;
@@ -107,29 +105,10 @@
   left: 0;
   right: 0;
   top: 10%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   width: 90%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   color: white;
-}
-
-#menos, #saudavel, #acima, #um, #dois, #tres{
-  display: none;
-  color: white;
-  text-align: left;
-  left: 0;
-  right: 0;
-  top: 10%;
-  margin-bottom: 10%;
-  width: 100%;
-  height: auto;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-ion-img{
-  width: 100%;
-  height: auto;
 }

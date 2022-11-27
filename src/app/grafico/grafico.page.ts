@@ -1,10 +1,8 @@
-import { getLocaleDayNames } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { IonBackButtonDelegate } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EChartsOption } from 'echarts';
 import { getAuth } from 'firebase/auth';
-import * as firebase from 'firebase/compat';
-import { arrayUnion, doc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
+import { arrayUnion, doc, getDoc, getFirestore, updateDoc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-grafico',
@@ -13,17 +11,19 @@ import { arrayUnion, doc, getFirestore, onSnapshot, updateDoc } from 'firebase/f
 })
 export class GraficoPage implements OnInit {
 
-  
-  data_atual = new Date();
-  registro : number;
-  data : any;
-  testeData = ['2022-02-02', '2020-03-03'];
-  testeValor = [75,77]
   //dataFormatada = ((this.data.getDate() )) + "/" + ((this.data.getMonth() + 1)) + "/" + this.data.getFullYear(); 
 
-  dados = [];
+  data_atual = new Date();
 
-  constructor() { }
+  registro : number; // registro enviado pelo usuário
+  data : any; // data enviada pelo usuário
+
+  datas = []; // datas recebidas pelo banco de dados
+  registros = []; // registros recebidos pelo banco de dados
+
+  dados = []; // recebe uma array com as datas e os registros juntos
+
+  graficoForm : FormGroup; // validação para impedir que o usuário envie valores vazios para o banco de dados
 
   chartOption: EChartsOption = {
     title: {
@@ -32,9 +32,11 @@ export class GraficoPage implements OnInit {
     tooltip: {
       trigger: 'axis'
     },
-    xAxis: {
+    animation: true,
+    xAxis: [{
       type: 'category',
     },
+  ],
     yAxis: {},
     toolbox: {
       right: 10,
@@ -88,56 +90,64 @@ export class GraficoPage implements OnInit {
         color: '#999'
       }
     },
+
     series: {
       name: 'Frequência Cardíaca',
       type: 'line',
-      data: [this.testeData , this.testeValor],//this.dados.sort(),
+      data: this.dados,
       markLine: {
         silent: true,
         lineStyle: {
           color: '#333'
         },
-        data: [
-          {
-            yAxis: 50
-          },
-          {
-            yAxis: 100
-          },
-          {
-            yAxis: 150
-          },
-          {
-            yAxis: 200
-          },
-          {
-            yAxis: 300
-          }
-        ]
-      }
-    }
+      },
+    },
     
 };
 
-  ngOnInit() {
+mergeOption = {};
+loading = true;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.graficoForm = this.formBuilder.group({
+      registro: ['', [Validators.required, Validators.minLength(1), Validators.max(220)]],
+      data: ['', [Validators.required]]
+    })
+   }
+  
+  async ngOnInit(){
 
     const auth = getAuth();
     const user = auth.currentUser;
     const uid = user.uid;
     const db = getFirestore();
 
-    const atualiza = onSnapshot(doc(db, "BDusuarios", uid), (doc) => {
+    const docRef = doc(db, "BDusuarios", uid);
 
-      const dadosUser = doc.data();
-      this.dados = dadosUser.registros_cardiacos;
-      console.log("Current data: ", this.dados);
-      
-  });
+      const docs = await getDoc(docRef);
+      const dadosUser = docs.data();
+      this.datas = dadosUser.registros_data;
+      this.registros = dadosUser.registros;
+
+  let len = this.registros.length;
   
+  for(let i= 0; i < len; i++){
+  const arrays = [this.datas[i],this.registros[i]];
+  this.dados.push(arrays);
+  }
 
   }
 
+async atualizarDados(){
+
+    let novosDados = await this.dados; // armazena os dados recebidos na variavel
+    novosDados.push([this.data, this.registro]) // acrescenta os dados digitados pelo usuário
+    this.mergeOption = { series: [{data: novosDados}]}; // acrescenta os dados no gráfico
+  }
+
   async enviarDados(){
+
+    this.atualizarDados();
 
     const auth = getAuth();
     const user = auth.currentUser;
@@ -147,8 +157,8 @@ export class GraficoPage implements OnInit {
     const docRef = doc(db, "BDusuarios", uid);
 
     const data = this.data.replace("T"," "); 
-    await updateDoc(docRef, {registros_cardiacos: arrayUnion(`${data} - ${this.registro}`)
-    });
 
+    await updateDoc(docRef, {registros_data: arrayUnion(data), registros: arrayUnion(this.registro) });
   }
+
 }

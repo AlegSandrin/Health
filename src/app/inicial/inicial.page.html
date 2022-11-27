@@ -3,34 +3,42 @@
 <div id="header">
 
   <ion-header collapse="fade">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="home"></ion-back-button>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="end">
+        <ion-menu-button> </ion-menu-button>
       </ion-buttons>
-      <ion-title><ion-icon name="home-outline"></ion-icon>Página Inicial</ion-title>
+      <ion-img class="logo" src="assets/img/logo.png" alt="logo"></ion-img><ion-title>Healthy Care</ion-title>
     </ion-toolbar>
   </ion-header>
 
 </div>
+<center><h1>Bem vindo ao Healthy Care!</h1></center>
+<img class="logo1" src="assets/img/logo1.png" alt="logo">
 
-<ion-list *ngIf="dados">
+<div id="inicio">
+ 
+<center><h2>Por que cuidar de sua saude?</h2>
+<h4>
+  Cuidar da saúde é uma atitude que deve ser tomada, diariamente, para evitar doenças e, claro, para manter uma vida mais equilibrada. 
+  No entanto, muitas vezes, devido à rotina cada vez mais agitada, as pessoas acabam se esquecendo do cuidado que deveriam ter com a saúde.
+</h4></center>
+ <center> <p>Confira mais abaixo!</p><br>
+<h3>índice de Massa Corporal - IMC</h3>
+<ion-button routerLink="/imc"><ion-img src="assets/img/imc.png" alt="imc"></ion-img></ion-button></center>
 
-<ion-label> Teste de resposta do banco de dados:</ion-label>
-<ion-item>
-  <ion-label>Nome de Usuário: {{dados.nome_usuario}}</ion-label>
-</ion-item>
-<ion-item>
-  <ion-label>Email: {{dados.email}}</ion-label>
-</ion-item>
-<ion-item>
-  <ion-label>Data de Nascimento: {{dados.data_nasc}}</ion-label>
-</ion-item>
-<ion-item>
-  <ion-label>Telefone: {{dados.telefone}}</ion-label>
-</ion-item>
+<p>
+   O IMC é uma medida que indica seus status nutricionais e verificar se estão com o peso equilibrado. 
+</p>
+<br>
+<center><h5>Variação cardíaca</h5>
+<ion-button routerLink="/grafico"><ion-img src="assets/img/grafico.jpeg" alt="imc"></ion-img></ion-button></center>
 
-</ion-list>
+<p>A variação da frequência cardíaca é uma medida do intervalo de tempo entre seus batimentos cardíacos.</p>
+<p>Veja o grafico!</p>
+</div>
 
-<ion-button routerLink="/grafico">Gráfico</ion-button>
+
+
+
 
 </ion-content>

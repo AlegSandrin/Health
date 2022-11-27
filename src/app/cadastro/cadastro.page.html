@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
 
 <ion-header collapse="fade">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
@@ -41,7 +41,25 @@
   <ion-item>
     <ion-label position="floating">Data de Nascimento</ion-label>
     <ion-input type="date" placeholder="Data de Nascimento" formControlName="data_nasc" clearInput></ion-input>
-    </ion-item>
+  </ion-item>
+
+  <div id="sexo">
+
+  <ion-radio-group [(ngModel)]="genero" formControlName="sexo" required>
+   
+   <ion-item>
+     <ion-label>Qual seu sexo?</ion-label>
+   
+     <ion-radio value="masculino"></ion-radio>
+     <ion-icon name="man-outline"></ion-icon>
+   
+     <ion-radio value="feminino"> </ion-radio>
+     <ion-icon name="woman-outline"></ion-icon> 
+   </ion-item>
+
+   </ion-radio-group>
+   
+   </div>
 
   <ion-item>
   <ion-label position="floating">Senha</ion-label>
@@ -59,7 +77,9 @@
 
 </form>
 
-<ion-label>Já possui uma conta? <a routerLink="/login">Faça login aqui!</a></ion-label>
+<div class="login">
+<ion-label >Já possui uma conta? <a routerLink="/login">Faça login aqui!</a></ion-label>
+</div>
 
 </div>
 

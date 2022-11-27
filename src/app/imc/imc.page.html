@@ -1,76 +1,101 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>IMC</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header collapse="fade">
     <ion-toolbar color="primary">
-      <ion-title size="large">     IMC     </ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="inicial"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button> </ion-menu-button>
+      </ion-buttons>
+      <ion-title>IMC</ion-title>
     </ion-toolbar>
   </ion-header>
 
 
-<div id="calculadora">
-
+<div id="conteudo">
+<form [formGroup]="imcForm" novalidate>
 <div id="sexo">
-<ion-label>Qual seu sexo?</ion-label>
-<ion-button (click)="calcular('Masculino')"> <ion-icon name="man-outline"></ion-icon> </ion-button>
-<ion-button (click)="calcular('Femino')"> <ion-icon name="woman-outline"></ion-icon> </ion-button>
+
+
+ <ion-radio-group [(ngModel)]="genero" formControlName="sexo" required>
+
+
+<ion-item>
+  <ion-label>Qual seu sexo?</ion-label>
+
+  <ion-radio value="masculino"></ion-radio>
+  <ion-icon name="man-outline"></ion-icon>
+
+  <ion-radio value="feminino"> </ion-radio>
+  <ion-icon name="woman-outline"></ion-icon> 
+</ion-item>
+
+
+</ion-radio-group>
+
 </div>
+
+
 
 <ion-item>
   <ion-label position="floating">Digite sua Idade:</ion-label>
-  <ion-input type="number" [(ngModel)]="idade" placeholder="digite aqui"></ion-input>
+  <ion-input type="number" [(ngModel)]="idade" placeholder="Exemplo: 18" formControlName="idade" clearInput></ion-input>
 </ion-item>
   
-
 <ion-item>
   <ion-label position="floating">Digite sua Altura em metros:</ion-label>
-  <ion-input type="number" [(ngModel)]="altura" placeholder="digite aqui"></ion-input>
+  <ion-input type="number" [(ngModel)]="altura" placeholder="Exemplo: 1,72" formControlName="altura" clearInput></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="floating">Digite seu Peso em kg:</ion-label>
-  <ion-input type="number" [(ngModel)]="peso" placeholder="digite aqui"></ion-input>
+  <ion-input type="number" [(ngModel)]="peso" placeholder="Exemplo: 61,50" formControlName="peso" clearInput></ion-input>
 </ion-item>
 
+</form>
 
 </div>
 
  <div id="container">
-
-<ion-button (click)="calcularIMC()"><ion-label>CALCULAR</ion-label></ion-button>
-<ion-img src="assets/img/tabela-imc.png" alt="tabela imc"></ion-img>
-</div>
+<ion-button [disabled]="!imcForm.valid" (click)="calcular()"><ion-label>CALCULAR</ion-label></ion-button>
 
 <div *ngIf="resultado" id="resultado">
   <h1>Resultado: {{resultado}}</h1>
 </div>
-
-<div *ngIf="texto1" id="texto">
-<h1>{{texto1}}</h1>
-<p>Para ter um ganho de peso saudável, não se deve comer somente muitos alimentos calóricos e sim priorizar alguns alimentos 
-  com boa quantidade calórica, mas ricos em nutrientes benéficos e com pouca quantidade de gordura saturada e 
-  gordura trans. Dica: Estimule a fome, alimentando-se a cada 3 horas. Tente fazer de 5 a 6 refeições por dia. Café da manhã, lanche, almoço, lanche, jantar e um lanche antes de dormir. 
-  O maior fracionamento permite você controlar melhor seu apetite!</p>
-  <ul>
-  <li> Alimentos ricos em proteína são grandes aliados: dê preferência às carnes magras (alcatra, maminha, fraldinha), frango e principalmente peixes e ovos, além de leite e queijos brancos como ricota e minas;</li>
-  <li> Aposte nas “gorduras boas”: amendoim, nozes, amêndoa, avelã, castanhas, azeite de oliva, linhaça e abacate;</li>
-  <li> Aumente o consumo de pães, bolos, massas, mandioca, batata, milho e cereais (arroz, farinha de trigo, fubá, aveia), lembrando sempre de optar pelas versões integrais;</li>
-  <li> Evite o uso de adoçantes artificiais, usando sempre o açúcar (mascavo, demerara, cristal) ou mel;</li>
-  <li> Evite alimentos nas versões diet e light, baixo teor de gorduras, calorias reduzidas;</li>
-  <li> Consuma frutas mais calóricas nos lanches como ameixa preta, uva passa, banana, abacate, caqui, manga, suco de laranja (2-3 unidades da fruta) ou suco de tamarindo;</li>
-  <li> Beba uma boa quantidade de água durante o dia, no mínimo 7 a 8 copos.;</li>
-  <li> Faça pratos bonitos, coloridos e atraentes, pois, a aparência do alimento exerce muita influência sobre o apetite;</li>
-  <li> Adicione 1 colher (sopa) de azeite ou farelo de aveia no almoço e jantar;</li>
-  </ul>
-
+<div id="menos">
+  <ion-img src="assets/img/imc_blue.png" alt="curva menino"></ion-img>
+</div>
+<div id="saudavel">
+  <ion-img src="assets/img/imc_green.png" alt="curva menino"></ion-img>
+</div>
+<div id="acima">
+  <ion-img src="assets/img/imc_amarelo.png" alt="curva menino"></ion-img>
+</div>
+<div id="um">
+  <ion-img src="assets/img/imc_laranja.png" alt="curva menino"></ion-img>
+</div>
+<div id="dois">
+  <ion-img src="assets/img/imc_laranja_escuro.png" alt="curva menino"></ion-img>
+</div>
+<div id="tres">
+  <ion-img src="assets/img/imc_red.png" alt="curva menino"></ion-img>
 </div>
 
-<div *ngIf="texto2" id="texto">
-<h1>{{texto2}}</h1>
+
+<div id="curvam">
+  <h2>Grafico da Curva de Crescimento</h2>
+  <ion-img src="assets/img/curvam.jpeg" alt="curva menino"></ion-img>
+</div>
+
+<div id="curvaf">
+  <h2>Grafico da Curva de Crescimento</h2>
+  <ion-img src="assets/img/curvaf.jpeg" alt="curva menino"></ion-img>
+</div>
+
+<h1>Confira uma dieta para seu IMC!</h1>
+<ion-button [disabled]="!imcForm.valid" (click)="calcularIMC()"><ion-label>dieta aqui!</ion-label></ion-button>
+
+
 </div>
 
 </ion-content>

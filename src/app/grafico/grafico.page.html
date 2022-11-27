@@ -1,28 +1,38 @@
 <body>
-<ion-header>
-  <ion-toolbar>
-    <ion-title>grafico</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <ion-header collapse="fade">
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="inicial"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button> </ion-menu-button>
+      </ion-buttons>
+      <ion-title>Grafico</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content [fullscreen]="true">
 
 
-  <div *ngIf="dados" echarts [options]="chartOption" class="demo-chart"></div>
+  <div echarts [options]="chartOption" [merge]="mergeOption" [loading]="loading" id="chart"></div>
 
   <div id="container"> 
 
+<form [formGroup]="graficoForm">
+
     <ion-item>
     <ion-label position="floating">Adicionar novo registro</ion-label>
-    <ion-input type="number" placeholder="Digite a frequência cardíaca" [(ngModel)]="registro" clearInput></ion-input>
+    <ion-input type="number" placeholder="Digite a frequência cardíaca" [(ngModel)]="registro" formControlName="registro" clearInput></ion-input>
     </ion-item>
 
     <ion-item>
-    <ion-input type="datetime-local" [(ngModel)]="data"></ion-input>
+    <ion-input type="datetime-local" [(ngModel)]="data" formControlName="data"></ion-input>
     </ion-item>
 
 
-    <ion-button (click)="enviarDados()">Adicionar</ion-button>
+    <ion-button [disabled]="!graficoForm.valid" (click)="enviarDados()">Adicionar</ion-button>
+
+</form>
 
 </div>
 
