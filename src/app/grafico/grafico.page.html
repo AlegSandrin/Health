@@ -7,14 +7,14 @@
       <ion-buttons slot="end">
         <ion-menu-button> </ion-menu-button>
       </ion-buttons>
-      <ion-title>Grafico</ion-title>
+      <ion-title><ion-icon class="titulo" name="bar-chart-outline"></ion-icon>Grafico</ion-title>
     </ion-toolbar>
   </ion-header>
 
 <ion-content [fullscreen]="true">
 
 
-  <div echarts [options]="chartOption" [merge]="mergeOption" [loading]="loading" id="chart"></div>
+  <div echarts [options]="chartOption" [merge]="mergeOption" [loading]="loading" id="chart" (chartInit)="onChartInit($event)" ></div>
 
   <div id="container"> 
 

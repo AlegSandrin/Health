@@ -1,0 +1,38 @@
+
+  <ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="inicial"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button> </ion-menu-button>
+      </ion-buttons>
+      <ion-title><ion-icon class="titulo" name="barbell-outline"></ion-icon>Exercícios Físicos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content [fullscreen]="true">
+
+<ion-list>
+
+  <ion-card *ngFor="let dados of dados">
+
+    <img src="{{dados.gifUrl}}">
+    <ion-card-header>
+    <ion-card-title> <h1>{{dados.name}}</h1> </ion-card-title>
+    <ion-card-subtitle> <h3>Target: {{dados.target}}</h3> </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <h4> Parte do Corpo Treinada: {{dados.bodyPart}} </h4>
+      <br>
+      <h4> Equipamento: {{dados.equipment}} </h4>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-list>
+
+<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais conteúdo..."> </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</ion-content>

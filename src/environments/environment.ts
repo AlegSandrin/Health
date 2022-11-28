@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  RapidAPIKey:'51e885550bmsh5f86f3c15be9b11p102cc6jsnd3dd77499ba1',
+  RapidAPIHost: 'exercisedb.p.rapidapi.com',
   firebase: {apiKey: "AIzaSyDza2AnkSUBlnrvTalCrA3aaeSEQ_Rkj7w",
   authDomain: "health-app-54768.firebaseapp.com",
   projectId: "health-app-54768",
@@ -11,6 +13,7 @@ export const environment = {
   messagingSenderId: "551298803851",
   appId: "1:551298803851:web:1d1160abb4cec67eb64c8e",
   measurementId: "G-WRN00DKEDY",},
+  
 };
 
 /*

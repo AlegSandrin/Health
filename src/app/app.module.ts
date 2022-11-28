@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 // import forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
       AngularFireDatabaseModule,
       FormsModule,
       ReactiveFormsModule,
+      HttpClientModule,
       NgxEchartsModule.forRoot({
         echarts: () => import('echarts'),
       }),

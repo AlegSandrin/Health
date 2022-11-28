@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'quemsomos',
     loadChildren: () => import('./quemsomos/quemsomos.module').then( m => m.QuemsomosPageModule)
   },
+  {
+    path: 'exercicios',
+    loadChildren: () => import('./exercicios/exercicios.module').then( m => m.ExerciciosPageModule)
+  },
 ];
 
 @NgModule({

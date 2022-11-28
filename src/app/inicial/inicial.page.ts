@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-inicial',
@@ -9,11 +10,14 @@ import { getAuth } from 'firebase/auth';
 })
 export class InicialPage implements OnInit {
 
-  dados: {};
+  dados?: {};
 
-  constructor() { }
+  constructor(public auth: AngularFireAuth) { }
 
   async ngOnInit() {
+
+    this.auth.onAuthStateChanged(async user => {
+      if (user) {
 
     const auth = getAuth();
     const user = auth.currentUser;
@@ -27,9 +31,12 @@ export class InicialPage implements OnInit {
     } catch (e) {
       console.log("Error getting cached document:", e);
     }
-
+    
+      
+      }
+    });
   }
-
 }
+
 
 

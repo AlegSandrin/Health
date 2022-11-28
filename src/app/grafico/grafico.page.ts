@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EChartsOption } from 'echarts';
 import { getAuth } from 'firebase/auth';
@@ -24,6 +24,8 @@ export class GraficoPage implements OnInit {
   dados = []; // recebe uma array com as datas e os registros juntos
 
   graficoForm : FormGroup; // validação para impedir que o usuário envie valores vazios para o banco de dados
+
+  echartsInstance: any;
 
   chartOption: EChartsOption = {
     title: {
@@ -159,6 +161,19 @@ async atualizarDados(){
     const data = this.data.replace("T"," "); 
 
     await updateDoc(docRef, {registros_data: arrayUnion(data), registros: arrayUnion(this.registro) });
+  }
+
+  onChartInit(ec) {
+    this.echartsInstance = ec;
+  }
+
+  resizeChart() {
+    if (this.echartsInstance) {
+      this.echartsInstance.resize();
+    }
+  }
+
+  ngOnDestroy(){
   }
 
 }
