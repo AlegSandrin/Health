@@ -28,3 +28,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
 
+ion-toast.toastClass {
+    --background: #246161;
+    --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+    --color: #ffffff;
+  }
+      
+  ion-toast.toastClass::part(header) {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: rgb(96, 214, 92);
+  }
+  ion-toast.toastClass::part(message) {
+    font-size: 1rem;
+  }
+  ion-toast.toastClass::part(icon) {
+    font-size: 50px;
+    color: rgb(96, 214, 92);
+  }
+
+  ion-content {
+    --background: rgba(24, 24, 24, 0.779) !important;
+    --ion-background-color: rgba(24, 24, 24, 0.779) !important;
+  }

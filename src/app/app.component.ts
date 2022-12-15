@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { getAuth, signOut } from 'firebase/auth';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router, public auth: AngularFireAuth) {}
+  constructor(private router: Router, public auth: AngularFireAuth, private authService: AuthService) {}
 
   usuario : any;
 
@@ -36,24 +37,11 @@ export class AppComponent implements OnInit {
         this.router.navigateByUrl("/home");
       }
     })
-
-    
-
     }
 
 
   signOut(){
-
-    const auth = getAuth();
-    signOut(auth).then(() => {
-      
-    this.router.navigateByUrl("/home");
-    
-    }).catch((error) => {
-    
-    
-    });
-    
+    this.authService.logout();
     }
 
 }

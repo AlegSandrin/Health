@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -18,6 +19,7 @@ export class CadastroPage implements OnInit {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public authService: AuthService,
+    private router: Router,
     )
     {
       this.cadastroForm = this.formBuilder.group({
@@ -31,10 +33,7 @@ export class CadastroPage implements OnInit {
       })
     }
 
-  ngOnInit() {
-  }
-
-  
+  ngOnInit() {}
 
   async cadastrar(){
     await this.presentLoading();
@@ -51,7 +50,7 @@ export class CadastroPage implements OnInit {
         const dados = this.cadastroForm.value;
         delete dados.confirm_senha; // remove o campo "confirm_senha" antes de enviar ao banco de dados
         await setDoc(doc(DBFirestore, "BDusuarios", novoUsuario.user.uid), dados);
-        //this.loading.dismiss(); // -> faça isso depois de cadastrar com sucesso
+        this.loading.dismiss(this.cadastroConcluido());
       }
       catch(error){
         let mensagem: string;
@@ -67,9 +66,7 @@ export class CadastroPage implements OnInit {
         }
       
       this.presentToast(mensagem);
-      }
-      finally{
-        this.loading.dismiss();
+              
       }
 
     }
@@ -83,6 +80,18 @@ export class CadastroPage implements OnInit {
 
   async presentToast(message: string){
     const toast = await this.toastCtrl.create({message, duration: 2000});
+    toast.present();
+  }
+
+  async cadastroConcluido(){
+    const toast = await this.toastCtrl.create({
+      header: 'Cadastro Concluído!',
+      message: 'Você será redirecionado para página inicial...', 
+      icon: 'checkmark',
+      position: 'middle',
+      cssClass: 'toastClass',
+      duration: 2000,
+    });
     toast.present();
   }
 

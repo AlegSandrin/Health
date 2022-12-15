@@ -2,6 +2,19 @@
   font-family: 'Patua One', cursive;
 }
 
+body {
+  box-shadow: inset 0px 0px 6px 6px #2c6b6b71;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  max-height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #container {
   transform: translateY(5%);
   height: 90%;
@@ -17,8 +30,10 @@
 #container ion-button{
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
   width: 90%;
   height: 50px;
   font-size: 1.1rem;
+  max-width: 500px;
+  max-height: 100px;
 }

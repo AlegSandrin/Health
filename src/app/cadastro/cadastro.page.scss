@@ -61,17 +61,20 @@ ion-img{
     margin-top: 2%;
     margin-bottom: 5%;
     background: rgb(185, 185, 185);
-    color: black
+    color: black;
+
 }
 
 #container ion-button{
-    margin-top: 5%;
-    height: 50px;
-    font-size: 1.1rem;
+    margin-top: 6%;
+    height: 55px;
+    font-size: 1.7rem;
 }
 
-#container .login ion-label{
-    margin-bottom: 10%;
+#container .login{
+    font-size: 1.2rem;
+    margin-top: 4%;
+    margin-bottom: 5%;
 }
 
 #sexo{
@@ -87,8 +90,10 @@ ion-img{
   }
 
   #sexo ion-item{
-    height: 50px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     width: 100%;
+
   }
 
   #sexo ion-icon{
