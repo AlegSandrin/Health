@@ -1,11 +1,14 @@
 # Healthy-Care
-App desenvolvido para um trabalho de escola com o objetivo de informar ao usuário dados sobre sua saúde, como IMC, dietas ideais, exercícios físicos e registros Frequência Cardíaca.
-Escola: ETEC Albert Eistein. Ano: 2022. Curso: 2ºAno - Desenvolvimento de Sistemas.
-
-Framework: Ionic - Angular.
-Banco de Dados: Firebase.
-APIs: ExerciseDB.
-
+App desenvolvido para um trabalho de escola com o objetivo de informar ao usuário dados sobre sua saúde, como IMC, dietas ideais, exercícios físicos e registros Frequência Cardíaca <br>
+<br>
+Escola: ETEC Albert Eistein. <br>
+Ano: 2022. <br>
+Curso: 2ºAno - Desenvolvimento de Sistemas. <br>
+<br>
+Framework: Ionic - Angular. <br>
+Banco de Dados: Firebase. <br>
+APIs: ExerciseDB. <br>
+<br>
 Participantes: 
 - Alexsandro Urbano
 - Helena Alonso Martins
