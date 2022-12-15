@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { getAuth } from 'firebase/auth';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
 @Component({
   selector: 'app-imc',
@@ -23,13 +25,18 @@ export class IMCPage implements OnInit {
   grauiii: boolean;
   curvam: boolean;
   curvaf: boolean;
-  genero: string;
+  genero: any;
   menos: boolean;
   saudavel: boolean;
   acima: boolean;
   um: boolean;
   dois: boolean;
   tres: boolean;
+
+  dados: any;
+  data = new Date();
+  dataAtual = this.data.getFullYear()
+  dadosIdade: any;
   
   public imcForm: FormGroup;
 
@@ -42,7 +49,25 @@ export class IMCPage implements OnInit {
     })
    }
 
-  ngOnInit() {
+  async ngOnInit() {
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const uid = user.uid;
+
+    const db = getFirestore();
+    const docRef = doc(db, "BDusuarios", uid);
+    try {
+
+      const doc = await getDoc(docRef);
+      this.dados = doc.data();
+      this.idade = this.dataAtual - parseInt(this.dados.data_nasc);
+      this.genero = this.dados.sexo;
+      
+    } catch (e) {
+      console.log("Error getting cached document:", e);
+    }
+
   }
   
   calcular(){
@@ -82,7 +107,7 @@ document.getElementById("curvaf").style.display = "block";
 }
 
   }
-  calcularIMC(){
+  conferirDieta(){
   const resultado = this.peso/(this.altura*this.altura);
   this.resultado = parseFloat(resultado.toFixed(2));
 
@@ -112,7 +137,7 @@ document.getElementById("curvaf").style.display = "block";
 
     case("obesidade3"):
     subheader = "OBESIDADE 3???";
-    message = "Esta seriamente na hora de procurar um profissinal para ajudalo!";
+    message = "Esta seriamente na hora de procurar um profissinal para ajuda-lo!";
     break;
    }
 

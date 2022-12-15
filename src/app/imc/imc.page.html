@@ -13,12 +13,11 @@
 
 
 <div id="conteudo">
+
 <form [formGroup]="imcForm" novalidate>
+
 <div id="sexo">
-
-
  <ion-radio-group [(ngModel)]="genero" formControlName="sexo" required>
-
 
 <ion-item>
   <ion-label>Qual seu sexo?</ion-label>
@@ -30,12 +29,8 @@
   <ion-icon name="woman-outline"></ion-icon> 
 </ion-item>
 
-
 </ion-radio-group>
-
 </div>
-
-
 
 <ion-item>
   <ion-label position="floating">Digite sua Idade:</ion-label>
@@ -60,7 +55,7 @@
 <ion-button [disabled]="!imcForm.valid" (click)="calcular()"><ion-label>CALCULAR</ion-label></ion-button>
 
 <div *ngIf="resultado" id="resultado">
-  <h1>Resultado: {{resultado}}</h1>
+  <h1>Resultado IMC: {{resultado}}</h1>
 </div>
 <div id="menos">
   <ion-img src="assets/img/imc_blue.png" alt="curva menino"></ion-img>
@@ -93,7 +88,7 @@
 </div>
 
 <h1>Confira uma dieta para seu IMC!</h1>
-<ion-button [disabled]="!imcForm.valid" (click)="calcularIMC()"><ion-label>dieta aqui!</ion-label></ion-button>
+<ion-button [disabled]="!imcForm.valid" (click)="conferirDieta()"><ion-label>DIETA AQUI!</ion-label></ion-button>
 
 
 </div>

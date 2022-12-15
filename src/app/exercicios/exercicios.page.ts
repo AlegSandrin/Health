@@ -15,6 +15,7 @@ export class ExerciciosPage implements OnInit {
   dadosTotal: any;
   dados = [];
   paginalAtual = 1;
+  paginaTotal = 0;
 
   ngOnInit() {
 
@@ -45,8 +46,9 @@ async consultaAPI(){
 
   gerarPaginas(paginas){
 
-    for(var i = 0; i < (5*paginas); i++){
+    for(var i = this.paginaTotal; i <= (5*paginas); i++){
       this.dados.push(this.dadosTotal[i]);
+      this.paginaTotal = i;
     }
     console.log(this.dados);
   }

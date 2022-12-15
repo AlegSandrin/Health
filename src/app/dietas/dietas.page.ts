@@ -101,7 +101,7 @@ export class DietasPage implements OnInit {
 
     case("obesidade3"):
     subheader = "OBESIDADE 3???";
-    message = "Esta seriamente na hora de procurar um profissinal para ajudalo!";
+    message = "Esta seriamente na hora de procurar um profissional para ajuda-lo!";
     break;
    }
 
