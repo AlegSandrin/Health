@@ -2,6 +2,27 @@
   font-family: 'Patua One', cursive;
 }
 
+@media only screen and (max-width: 800px){
+  ion-toolbar{
+  height: 60px;
+}
+  ion-title{
+  font-size: 2.2rem;
+}
+}
+
+@media only screen and (min-width: 801px){
+  ion-toolbar{
+    height: 60px;
+  }
+  ion-title{
+    font-size: 2.4rem;
+  }
+
+}
+
+
+
 .titulos{
     font-size:80px;
     padding: 3px;
@@ -43,6 +64,10 @@
         ion-icon {
           color:#238383;
         }
+      }
+
+      @media only screen and (min-width: 800px){
+        font-size: 1.1rem
       }
     }
   }

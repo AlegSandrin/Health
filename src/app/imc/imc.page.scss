@@ -82,10 +82,30 @@
     width: 100%;
   }
   
-  ion-title{
-    color: white;
+  .titulo{
+    margin-right: 5px;
+    font-size: 30px;
+    color:white;
   }
   
+  @media only screen and (max-width: 800px){
+    ion-toolbar{
+    height: 55px;
+  }
+    ion-title{
+    font-size: 1.6rem;
+  }
+  }
+  
+  @media only screen and (min-width: 801px){
+    ion-toolbar{
+      height: 60px;
+    }
+    ion-title{
+      font-size: 1.8rem;
+    }
+  }
+
 #texto *{
     color: white;
 }
@@ -134,11 +154,4 @@
 ion-img{
   width: 100%;
   height: auto;
-}
-
-.titulo{
-  margin-top: 10px;
-  margin-right: 10px;
-  font-size: 28px;
-  color:white;
 }

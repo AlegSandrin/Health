@@ -3,11 +3,28 @@
 }
 
 .titulo{
-    margin-top: 10px;
-    margin-right: 10px;
-    font-size: 40px;
-    color:white;
+  margin-right: 5px;
+  font-size: 25px;
+  color:white;
+}
+
+@media only screen and (max-width: 800px){
+  ion-toolbar{
+  height: 55px;
+}
+  ion-title{
+  font-size: 1.4rem;
+}
+}
+
+@media only screen and (min-width: 801px){
+  ion-toolbar{
+    height: 60px;
   }
+  ion-title{
+    font-size: 1.8rem;
+  }
+}
 
   ion-card-header {
     display: flex;
