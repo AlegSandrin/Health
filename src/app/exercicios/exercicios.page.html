@@ -13,6 +13,29 @@
   
 <ion-content [fullscreen]="true">
 
+<div class="filtro">
+
+<div class="grid">
+<ion-label class="fil-text"><ion-icon class="fil-icon" name="filter"></ion-icon>Filtrar por:</ion-label>
+</div>
+
+<ion-chip (click)="filtrar('targetMuscles')">
+  <ion-icon name="locate" color="success"></ion-icon>
+  <ion-label>Músculo Alvo</ion-label>
+</ion-chip>
+
+<ion-chip (click)="filtrar('bodyParts')">
+  <ion-icon name="man" color="success"></ion-icon>
+  <ion-label>Parte do Corpo</ion-label>
+</ion-chip>
+
+<ion-chip (click)="filtrar('equipment')">
+  <ion-icon name="barbell" color="success"></ion-icon>
+  <ion-label>Equipamento</ion-label>
+</ion-chip>
+
+</div>
+
 <ion-list>
 
   <ion-card *ngFor="let dados of dados">

@@ -48,3 +48,19 @@
     margin: 0;
     color: #238383;
   }
+
+.filtro {
+  margin:5px;
+  .fil-icon{
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 22px;
+  transform:translateY(3px);
+  }
+  .fil-text{
+  font-size: 1.2rem;
+  }
+  .grid{
+    display:grid;
+  }
+}
