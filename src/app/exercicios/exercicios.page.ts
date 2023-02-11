@@ -15,8 +15,6 @@ export class ExerciciosPage implements OnInit {
 
   dadosTotal: any;
   dados = [];
-  paginaAtual = 1;
-  paginaTotal = 0;
 
   valor = '';
 
@@ -27,33 +25,34 @@ export class ExerciciosPage implements OnInit {
 
 async consultaAPI(param){
 
-  let headers = new HttpHeaders({
+  // Requisita os dados da API
+  let headers = new HttpHeaders({ 
     'X-RapidAPI-Key': environment.RapidAPIKey,
     'X-RapidAPI-Host': environment.RapidAPIHost,
   });
   this.dadosTotal = await this.http.get<any>(`https://exercisedb.p.rapidapi.com/exercises${param}`, {headers: headers}).toPromise();
-
-    this.gerarPaginas(this.paginaAtual);
+    // Chama a função para gerar os dados na página
+    this.gerarPaginas();
 
 }
 
-  load(event?: InfiniteScrollCustomEvent){
-    this.paginaAtual++;
-    this.gerarPaginas(this.paginaAtual);
-    event?.target.complete();
-  }
-
-  gerarPaginas(paginas){
-
-    for(var i = this.paginaTotal; i <= (5*paginas); i++){
-      this.dados.push(this.dadosTotal[i]);
-      this.paginaTotal = i;
+  gerarPaginas(){
+    const len = this.dados.length;
+    // Enquanto a quantidade de elementos na array "dados" for menor que a quantidade de elementos
+    // no array "dadosTotal", a variavel "dados" receberá +5 elementos
+    if(len < this.dadosTotal.length){
+      for(let i = 0; i < 5; i++){
+        this.dados.push(this.dadosTotal[len + i]);
+      }
     }
-    console.log(this.dados);
   }
 
-  loadMore(event: InfiniteScrollCustomEvent){
-    this.load(event);
+  loadMore(event){
+    // Carrega mais 5 elementos quando o scroll chegar no final da página
+    this.gerarPaginas();
+    setTimeout(() => {
+      (event as InfiniteScrollCustomEvent).target.complete();
+    }, 500)
   }
 
   async filtrar(filtro){
@@ -176,9 +175,7 @@ async consultaAPI(param){
         {
           text: 'Confirmar',
           handler: (valor) => {
-            this.paginaAtual = 1; // Limpa resultados anteriores da consulta e realiza uma nova
-            this.paginaTotal = 0;
-            this.dadosTotal = [];
+            this.dadosTotal = []; // Limpa resultados anteriores da consulta e realiza uma nova
             this.dados = [];
             this.consultaAPI(valor);
           },
@@ -250,9 +247,7 @@ async consultaAPI(param){
           {
             text: 'Confirmar',
             handler: (valor) => {
-              this.paginaAtual = 1; // Limpa resultados anteriores da consulta e realiza uma nova
-              this.paginaTotal = 0;
-              this.dadosTotal = [];
+              this.dadosTotal = []; // Limpa resultados anteriores da consulta e realiza uma nova
               this.dados = [];
               this.consultaAPI(valor);
             },
@@ -420,9 +415,7 @@ async consultaAPI(param){
           {
             text: 'Confirmar',
             handler: (valor) => {
-              this.paginaAtual = 1; // Limpa resultados anteriores da consulta e realiza uma nova
-              this.paginaTotal = 0;
-              this.dadosTotal = [];
+              this.dadosTotal = []; // Limpa resultados anteriores da consulta e realiza uma nova
               this.dados = [];
               this.consultaAPI(valor);
             },
