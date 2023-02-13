@@ -15,8 +15,8 @@
 
 <div class="filtro">
 
-<div class="grid">
 <ion-label class="fil-text"><ion-icon class="fil-icon" name="filter"></ion-icon>Filtrar por:</ion-label>
+
 </div>
 
 <ion-chip (click)="filtrar('targetMuscles')">
@@ -34,10 +34,10 @@
   <ion-label>Equipamento</ion-label>
 </ion-chip>
 
-</div>
-
 <ion-list>
 
+  <ion-grid>
+    <ion-row>
   <ion-card *ngFor="let dados of dados">
 
     <img src="{{dados.gifUrl}}">
@@ -51,7 +51,10 @@
       <h4> Equipamento: {{dados.equipment}} </h4>
     </ion-card-content>
   </ion-card>
-  
+
+  </ion-row>
+</ion-grid>
+
 </ion-list>
 
 <ion-infinite-scroll (ionInfinite)="loadMore($event)">

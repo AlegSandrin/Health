@@ -16,11 +16,11 @@
 
       <ion-item>
 
-        <ion-button id="hover-trigger" class="camera-icon" fill="clear" color="light" (click)="selectImage()">
+        <ion-button slot="end" class="camera-icon" fill="clear" color="light" (click)="selectImage()">
         <ion-icon name="camera"></ion-icon>
         </ion-button>
 
-      <ion-avatar class="avatar">
+      <ion-avatar slot="start" class="avatar">
         <img id="profilePic" src="assets/img/avataricon_green.png">
       </ion-avatar>
       {{usuario.nome_usuario}}

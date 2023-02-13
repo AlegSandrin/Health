@@ -2,15 +2,11 @@
   font-family: 'Patua One', cursive;
 }
 
-body{
-position: relative;
-}
 
 #quem{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20%;
 }
 
 #quem p{
@@ -25,22 +21,23 @@ position: relative;
 }
 
 #referencias li{
-font-size: 0.7rem;
+font-size: 0.8rem;
 }
 
 ion-img{
-    height: 100px;
-    margin-top: 10px;
+    height: 150px;
+    margin-top: 15px;
 }
 
 #referencias{
-    width: 85%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 #referencias h1{
-    font-size: 0.9rem;
+    color: #29c869;
+    font-size: 1rem;
 }
 
 .titulo{
@@ -65,4 +62,26 @@ ion-img{
     ion-title{
       font-size: 1.8rem;
     }
+
+    ion-img{
+      height: 180px;
+    }
+
+    #quem h1{
+      font-size: 2rem;
+    }
+    #quem h2{
+      font-size: 1.7rem;
+    }
+    #quem p, li{
+      font-size: 1.3rem;
+    }
+
+    #referencias h1{
+      font-size: 1.6rem;
+    }
+    #referencias li{
+      font-size: 1.2rem;
+    }
+
   }

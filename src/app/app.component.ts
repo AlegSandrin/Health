@@ -170,7 +170,8 @@ export class AppComponent implements OnInit {
        const storageRef = ref(storage, `gs://${link}/IMGusuarios/${this.uid}`);
 
        uploadString(storageRef, data, 'data_url').then((snapshot) => {
-      location.reload();
+        this.loadProfilePic(this.uid);
+        // location.reload();
       });
      }
 
