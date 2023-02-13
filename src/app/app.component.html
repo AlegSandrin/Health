@@ -15,11 +15,17 @@
     <ion-menu-toggle>
 
       <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/img/avataricon_green.png">
+
+        <ion-button id="hover-trigger" class="camera-icon" fill="clear" color="light" (click)="selectImage()">
+        <ion-icon name="camera"></ion-icon>
+        </ion-button>
+
+      <ion-avatar class="avatar">
+        <img id="profilePic" src="assets/img/avataricon_green.png">
       </ion-avatar>
       {{usuario.nome_usuario}}
     </ion-item>
+    
 
         <ion-item routerLink="/inicial">
           <ion-icon name="home-outline"></ion-icon>Início

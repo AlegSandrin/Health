@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
       AngularFirestoreModule,
       AngularFireStorageModule,
       AngularFireDatabaseModule,
+      AngularFirestoreModule,
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
