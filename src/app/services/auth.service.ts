@@ -22,8 +22,9 @@ export class AuthService {
   logout() {
     const auth = getAuth();
     signOut(auth).then(() => {
-      
+    location.reload()
     this.router.navigateByUrl("/home");
+    
     
     }).catch((error) => {
       console.log("Error getting cached document:", error);
