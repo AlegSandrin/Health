@@ -41,7 +41,7 @@ async consultaAPI(param){
     // Enquanto a quantidade de elementos na array "dados" for menor que a quantidade de elementos
     // no array "dadosTotal", a variavel "dados" receberá +5 elementos
     if(len < this.dadosTotal.length){
-      for(let i = 0; i < 5; i++){
+      for(let i = 0; i < 10; i++){
         this.dados.push(this.dadosTotal[len + i]);
       }
     }
