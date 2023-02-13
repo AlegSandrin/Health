@@ -68,6 +68,7 @@ export class CadastroPage implements OnInit {
       this.presentToast(mensagem);
               
       }
+      this.loading.dismiss();
 
     }
     
