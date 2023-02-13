@@ -44,4 +44,20 @@ body{
     ion-title{
       font-size: 1.8rem;
     }
+
+    #container ion-button{
+      margin-top: 20px;
+      height: 50px;
+      width: 400px;
+      font-size: 1.1rem;
+  }
+
+  ion-item{
+    margin-left: auto;
+    margin-right: auto;
+    --background: none;
+    width: 400px;
+    text-align: center;
+    color: white;
+  }
   }

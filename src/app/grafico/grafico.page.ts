@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EChartsOption } from 'echarts';
+import * as echarts from 'echarts/types/dist/echarts';
 import { getAuth } from 'firebase/auth';
 import { arrayUnion, doc, getDoc, getFirestore, updateDoc } from 'firebase/firestore';
 
@@ -117,27 +118,9 @@ loading = true;
     })
    }
   
-  async ngOnInit(){
-
-    const auth = getAuth();
-    const user = auth.currentUser;
-    const uid = user.uid;
-    const db = getFirestore();
-
-    const docRef = doc(db, "BDusuarios", uid);
-
-      const docs = await getDoc(docRef);
-      const dadosUser = docs.data();
-      this.datas = dadosUser.registros_data;
-      this.registros = dadosUser.registros;
-
-  let len = this.registros.length;
-  
-  for(let i= 0; i < len; i++){
-  const arrays = [this.datas[i],this.registros[i]];
-  this.dados.push(arrays);
-  }
-
+  ngOnInit(){
+    this.lerDados();
+    
   }
 
 async atualizarDados(){
@@ -174,6 +157,32 @@ async atualizarDados(){
   }
 
   ngOnDestroy(){
+    this.echartsInstance.dispose();
+  }
+
+  async lerDados(){
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const uid = user.uid;
+    const db = getFirestore();
+
+    const docRef = doc(db, "BDusuarios", uid);
+
+      const docs = await getDoc(docRef);
+      const dadosUser = docs.data();
+      this.datas = dadosUser.registros_data;
+      this.registros = dadosUser.registros;
+
+  let len = this.registros.length;
+  
+  for(let i= 0; i < len; i++){
+  const arrays = [this.datas[i],this.registros[i]];
+  this.dados.push(arrays);
+  }
+
+  if (this.echartsInstance){
+  this.echartsInstance.setOption(this.chartOption);
+  }
   }
 
 }
