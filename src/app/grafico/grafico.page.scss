@@ -45,6 +45,16 @@ body{
       font-size: 1.8rem;
     }
 
+    #container{
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      border: solid 1px #29c869;
+      border-radius: 12px;
+      width: 420px;
+      height: 220px;
+    }
+
     #container ion-button{
       margin-top: 20px;
       height: 50px;
@@ -53,6 +63,7 @@ body{
   }
 
   ion-item{
+    margin:5px;
     margin-left: auto;
     margin-right: auto;
     --background: none;

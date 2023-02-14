@@ -9,7 +9,7 @@ position: relative;
 ion-icon{
     transform: translateY(20%);
     font-size: 32px;
-    margin-right: 2%;
+    margin-right: 5px;
 }
 
 ion-img{
@@ -23,6 +23,8 @@ ion-img{
     flex-direction: column;
     justify-content: center;
     margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 #container .title,.subtitle {
@@ -32,22 +34,12 @@ ion-img{
 }
 
 #container .title{
+    color: #29c869;
     width: 100%;
     margin-top: 5%;
     margin-bottom: 5%;
 
-    @media only screen and (max-width: 600px){
-    font-size: 2.2rem;
-    }
-    @media only screen and (min-width: 601px){
-    font-size: 3rem;
-    }
-    @media only screen and (min-width: 1000px){
-    font-size: 4rem;
-    }
 }
-
-
 
 #container .subtitle{
     margin-bottom: 5%;
@@ -91,23 +83,71 @@ ion-img{
 #sexo{
     display: flex;
     flex-direction: column;
-    
   }
 
    #sexo ion-label{
     margin-left: 5px;
     margin-right: 30px;
-
   }
 
   #sexo ion-item{
     padding-top: 8px;
     padding-bottom: 8px;
     width: 100%;
-
   }
 
   #sexo ion-icon{
     transform: translateY(-10%);
     color: rgb(3, 18, 15);
   }
+
+  @media only screen and (max-width: 800px){
+
+    ion-toolbar{
+        height: 55px;
+      }
+        ion-title{
+        font-size: 1.6rem;
+      }
+
+      #container .title{
+        font-size: 2.8rem;
+    }
+
+    }
+    @media only screen and (min-width: 801px){
+
+    ion-toolbar{
+        height: 60px;
+      }
+      ion-title{
+        font-size: 1.8rem;
+      }
+
+    #container {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+    #container .title{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-size: 2.8rem;
+    }
+    #container .subtitle {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    #container ion-item{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    
+
+    }
+    @media only screen and (min-width: 1000px){
+    #container .title{
+        font-size: 3rem;
+    }
+    
+    }
