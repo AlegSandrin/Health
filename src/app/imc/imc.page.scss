@@ -2,6 +2,10 @@
   font-family: 'Patua One', cursive;
 }
 
+ion-title ion-icon{
+  transform:translateY(3px)
+}
+
 #container {
     text-align: center;
     left: 0;
@@ -95,7 +99,7 @@
   }
 
   }
-  
+
   @media only screen and (min-width: 801px){
     ion-toolbar{
       height: 60px;

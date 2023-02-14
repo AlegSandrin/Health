@@ -6,6 +6,10 @@
     margin-bottom: 10%;
 }
 
+ion-title ion-icon{
+  transform:translateY(3px)
+}
+
 body{
     --background: #100C2A;
     position: relative;

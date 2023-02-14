@@ -1,18 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 *{
   font-family: 'Patua One', cursive;
 }
 
 body {
-  box-shadow: inset 0px 0px 6px 6px #2c6b6b71;
+  background: rgba(0, 0, 0, 0.897);
+  background: linear-gradient(rgba(11, 246, 42, 0.4), rgba(9, 177, 243, 0.4)), url("/assets/img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 img {
+  margin-bottom: 0;
   width: 100%;
   height: auto;
   max-width: 400px;
   max-height: auto;
   margin-left: auto;
   margin-right: auto;
+}
+
+h1{
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
 #container {
@@ -36,4 +49,37 @@ img {
   font-size: 1.1rem;
   max-width: 500px;
   max-height: 100px;
+}
+
+@media only screen and (width < 800px){
+  body{
+  background-size:1200px 1000px;
+  background-position: 0%;
+  }
+  #container {
+    backdrop-filter: blur(3px);
+    box-shadow: inset 0px 0px 6px 6px #0e16163e;
+    border-radius: 20px;
+    height: 90%;
+  }
+  #container ion-button{
+    margin-bottom: 10px;
+  }
+  h1{
+    font-size:2.2rem
+  }
+  
+}
+
+@media only screen and (width > 800px){
+  #container {
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0px 0px 6px 6px #0e16163e;
+    border-radius: 20px;
+    width: 550px;
+  }
+
+  h1{
+    font-size:3rem
+  }
 }
