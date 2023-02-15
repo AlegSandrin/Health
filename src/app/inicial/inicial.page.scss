@@ -15,6 +15,12 @@ position: relative;
     font-family: 'Dancing Script', cursive;
 }
 
+@media only screen and (min-width: 290),(max-width: 380px){
+    #header ion-title{
+        font-size: 1.8rem;
+    }
+}
+
 @media only screen and (max-width: 600px){
     ion-button{
         height:200px;
